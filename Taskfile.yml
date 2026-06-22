@@ -1,0 +1,14 @@
+version: "3"
+expansion: 3
+
+vars:
+  MODULES:
+
+includes:
+  tools:
+    taskfile: "tools/crossplane-templates"
+  cluster:
+    taskfile: "tools/crossplane-scc-vcluster"
+  external:
+    taskfile: "taskfile/external.yaml"
+

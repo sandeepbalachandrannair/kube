@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysqlpod-sel
+  namespace: sandeep
+  labels:
+    env: dev
+    user: sandeep
+spec:
+  containers:
+  - name: c1
+    image: mysql
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      valueFrom:
+        configMapKeyRef:
+          name: cm1
+          key: root-pass
+    - name: MYSQL_DATABASE
+      valueFrom:
+        configMapKeyRef:
+          name: cm1
+          key: sql-db
