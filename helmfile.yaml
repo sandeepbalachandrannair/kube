@@ -1,0 +1,10 @@
+commonLabels:
+  team: scc-dev
+
+helmfiles:
+  - path: "tools/crossplane-scc-vcluster/helmfile.yaml"
+
+  - path: "cluster/*-helmfile.yaml"
+    values:
+      - cluster/eks/vcluster/preset/all-on.yaml
+      - cluster/eks/vcluster/preset/configuration-azure-development.yaml

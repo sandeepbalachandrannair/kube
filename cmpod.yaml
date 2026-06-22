@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysqlpod-new
+  namespace: sandeep
+  labels:
+    env: dev
+    user: sandeep
+spec:
+  containers:
+  - name: c1
+    image: mysql
+    envFrom:
+    - configMapRef:
+        name: cm1

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-recreate
+  namespace: sandeep
+  annotations:
+    kubernetes.io/change-cause: "initial caddy deployment"
+spec:
+  strategy:
+    type: Recreate
+  replicas: 3
+  selector:
+    matchLabels:
+      app: caddy-recreate
+  template:
+    metadata:
+      labels:
+        app: caddy-recreate
+    spec:
+      containers:
+      - name: c1
+        image: caddy
